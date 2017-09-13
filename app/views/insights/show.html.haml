@@ -1,2 +1,7 @@
 %h1= @insight.title
 %p= @insight.description
+
+
+= link_to "Back", root_path
+= link_to "Edit", edit_insight_path
+= link_to "Delete", insight_path, method: :delete, data: { confirm: "Are you sure?"}
