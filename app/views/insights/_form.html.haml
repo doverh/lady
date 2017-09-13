@@ -1,0 +1,20 @@
+= simple_form_for @insight, html: { multipart: true } do |f|
+	- if @insight.errors.any?
+		#errors
+			%h2
+				= pluralize(@insight.errors.count, "error")
+				prevented this Insight from saving
+			%ul
+				- @insight.errors.full_messages.each do |msg|
+					%li= msg
+
+	/ .form-group
+	/ 	= f.input :picture, input_html: { class: 'form-control' }
+
+	.form-group
+		= f.input :title, input_html: { class: 'form-control' }
+
+	.form-group
+		= f.input :description, input_html: { class: 'form-control' }
+
+	= f.button :submit, class: "btn btn-primary"
